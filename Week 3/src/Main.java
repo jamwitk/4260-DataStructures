@@ -9,7 +9,7 @@ public class Main {
         int selectionCopyAvg=0;
         int oddEvenCopyAvg=0;
         int bubbleCopyAvg=0;
-        System.out.println("Bubble Sort-----------------------");
+        System.out.println("------------------------Bubble Sort-----------------------");
         for(int k = 0; k < 20; k++){
             System.out.println((k+1)+". iteration");
             ArraySort arraySorter = new ArraySort(25);
@@ -22,7 +22,7 @@ public class Main {
             bubbleCopyAvg+=response[1];
             System.out.println("Comparison Counter: " + response[0] + " and Copy Counter: " + response[1]);
         }
-        System.out.println("Selection Sort------------------------");
+        System.out.println("------------------------Selection Sort------------------------");
         for(int k = 0; k < 20; k++){
             System.out.println((k+1)+". iteration");
             ArraySort arraySorter = new ArraySort(25);
@@ -35,7 +35,7 @@ public class Main {
             selectionCopyAvg+=response[1];
             System.out.println("Comparison Counter: " + response[0] + " and Copy Counter: " + response[1]);
         }
-        System.out.println("Insertion Sort------------------------");
+        System.out.println("------------------------Insertion Sort------------------------");
         for(int k = 0; k < 20; k++){
             System.out.println((k+1)+". iteration");
             ArraySort arraySorter = new ArraySort(25);
@@ -48,7 +48,7 @@ public class Main {
             insertionCopyAvg+=response[1];
             System.out.println("Comparison Counter: " + response[0] + " and Copy Counter: " + response[1]);
         }
-        System.out.println("oddEven Sort------------------------");
+        System.out.println("------------------------oddEven Sort------------------------");
         for(int k = 0; k < 20; k++){
             System.out.println((k+1)+". iteration");
             ArraySort arraySorter = new ArraySort(25);
@@ -63,17 +63,17 @@ public class Main {
         }
 
         System.out.println("AVERAGES: ");
-        System.out.println("Bubble Sort Comparison average: "+ bubbleComparisonAvg/25);
-        System.out.println("Bubble Sort Copy average: "+ bubbleCopyAvg/25);
+        System.out.println("Bubble Sort Comparison average: "+ bubbleComparisonAvg/20);
+        System.out.println("Bubble Sort Copy average: "+ bubbleCopyAvg/20);
 
-        System.out.println("Selection Sort Comparison average: "+ selectionComparisonAvg/25);
-        System.out.println("Selection Sort Copy average: "+ selectionCopyAvg/25);
+        System.out.println("Selection Sort Comparison average: "+ selectionComparisonAvg/20);
+        System.out.println("Selection Sort Copy average: "+ selectionCopyAvg/20);
 
-        System.out.println("Insertion Sort Comparison average: "+ insertionComparisonAvg/25);
-        System.out.println("Insertion Sort Copy average: "+ insertionCopyAvg/25);
+        System.out.println("Insertion Sort Comparison average: "+ insertionComparisonAvg/20);
+        System.out.println("Insertion Sort Copy average: "+ insertionCopyAvg/20);
 
-        System.out.println("Odd Even Comparison Sort Comparison average: "+ oddEvenComparisonAvg/25);
-        System.out.println("Odd Even Comparison Copy average: "+ insertionCopyAvg/25);
+        System.out.println("Odd Even Sort Comparison average: "+ oddEvenComparisonAvg/20);
+        System.out.println("Odd Even Sort Copy average: "+ oddEvenCopyAvg/20);
     }
 }
 // bubbleSort.java
@@ -146,6 +146,7 @@ class ArraySort
             a[in] = temp;                  // insert marked item
             swapCounter++;                 // inserted marked item
         }  // end for
+        display();
         return new int[]{comparisonCounter, swapCounter};
     }  // end insertionSort()
     //--------------------------------------------------------------
@@ -169,6 +170,7 @@ class ArraySort
             a[min] = temp;
             swapCounter+=3;
         }  // end for(out)
+        display();
         return new int[]{comparisonCounter, swapCounter};
     }
     public int[] oddEvenSort(){
@@ -195,6 +197,7 @@ class ArraySort
                 }
             }
         }
+        display();
         return new int[]{comparisonCounter, swapCounter};
     }
 }  // end class ArrayBub
