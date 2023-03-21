@@ -43,10 +43,3 @@ public class Main {
         System.out.println("Second account: "+secondBankAccount.GetBalance());
     }
 }
-
-//çok iyi lan istersen
-//aynı anda yazıyoz offf
-// coderız abi
-//
-//zoom gibi ekran veya kameralı konusma da yapabilirsin.
-//call'a katılasana
