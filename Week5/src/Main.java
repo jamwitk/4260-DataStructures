@@ -26,7 +26,7 @@ public class Main {
         newFirstLastList.deleteLasts();
         newFirstLastList.displayList();
         //3-) REGION
-        System.out.println(lastInteger(1000,600));
+        System.out.println(lastInteger2(10,6));
     }
     public static int lastInteger(int n, int k) {
         DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
@@ -59,18 +59,48 @@ public class Main {
             }
             counter++;
             if(counter == k){
-                doublyLinkedList.deleteKey(current.dData);
+                doublyLinkedList.deleteKey(current.dData); //Delete the current element
                 counter = 0;
             }
             current = next;
-            if(next == null)
+            if(next == null) //If the next is null, then the current is the last element
                 break;
+
             doublyLinkedList.displayForward();
         }
         return (int) doublyLinkedList.deleteFirst().dData;
 
 
     }
+    public static int lastInteger2(int n, int k) {
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i] = i + 1;
+        }
+        int counter = 0;
+        int index = 0;
+        int zeroCounter = 0;
+        while (zeroCounter < n - 1) {
+            if (array[index] != 0) {
+                counter++;
+                if (counter == k) {
+                    array[index] = 0;
+                    counter = 0;
+                    zeroCounter++;
+                }
+            }
+            index++;
+            if (index == n)
+                index = 0;
+
+        }
+        for (int i = 0; i < n; i++) {
+            if (array[i] != 0)
+                return array[i];
+        }
+        return -1;
+    }
+
 }
 
 
