@@ -26,8 +26,49 @@ public class Main {
         newFirstLastList.deleteLasts();
         newFirstLastList.displayList();
         //3-) REGION
-        DoublyLinkedList newDoublyLinkedList = new DoublyLinkedList();
-        newDoublyLinkedList.lastInteger(10,6);
+        System.out.println(lastInteger(1000,600));
+    }
+    public static int lastInteger(int n, int k) {
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        for (int i = 1; i <= n; i++) { //Insert the numbers from 1 to n
+            doublyLinkedList.insertLast(i);
+        }
+
+        doublyLinkedList.displayForward(); //Display the list
+
+        boolean forward = true;
+        int counter = 0;
+        dLink current = doublyLinkedList.first;
+        dLink next = null;
+
+        while(!doublyLinkedList.isEmpty()){ //While the list is not empty
+            if(forward){
+                next = current.next;
+                if (next == null) { //If the next is null, then the current is the last element
+                    next = current.previous;
+                    forward = false;
+                }
+            }
+            else{
+                next = current.previous;
+                if (next == null) { //If the next is null, then the current is the first element
+                    next = current.next;
+                    forward = true;
+                }
+            }
+            counter++;
+            if(counter == k){
+                doublyLinkedList.deleteKey(current.dData);
+                counter = 0;
+            }
+            current = next;
+            if(next == null)
+                break;
+            doublyLinkedList.displayForward();
+        }
+        return (int) doublyLinkedList.deleteFirst().dData;
+
 
     }
 }
@@ -219,8 +260,8 @@ class dLink
 ////////////////////////////////////////////////////////////////
 class DoublyLinkedList
 {
-    private dLink first;               // ref to first item
-    private dLink last;                // ref to last item
+    public  dLink first;               // ref to first item
+    public dLink last;                // ref to last item
     // -------------------------------------------------------------
     public DoublyLinkedList()         // constructor
     {
@@ -352,50 +393,6 @@ class DoublyLinkedList
         }
         System.out.println("");
     }
-    public void lastInteger(int n, int k){
-        DoublyLinkedList list = new DoublyLinkedList();
-        for (int i = 1; i <= n; i++) {
-            list.insertLast(i);
-        }
 
-        boolean forward = true;
-        dLink current = list.first;
-        dLink next = null;
-        list.displayForward();
-
-        while (!list.isEmpty()) {
-
-            for (int i = 0; i < k-1; i++) {
-
-                if (forward) {
-                    next = current.next;
-                    if (next == null) {
-                        forward = false;
-                        next = current.previous;
-                        current = next;
-                    }
-                } else {
-                    next = current.previous;
-                    if (next == null) {
-                        forward = true;
-                        next = current.next;
-                        current = next;
-
-                    }
-                }
-                if (next == null) {
-                    break;
-                }
-                current = next;
-                list.displayForward();
-
-            }
-
-            System.out.println(list.deleteKey(current.dData).dData +" is deleted");
-        }
-
-
-
-    }
 // -------------------------------------------------------------
 }
