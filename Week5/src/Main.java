@@ -37,29 +37,29 @@ public class Main {
 
         doublyLinkedList.displayForward(); //Display the list
 
-        boolean forward = true;
+        boolean moveForward = true;
         int counter = 0;
         dLink current = doublyLinkedList.first;
         dLink next = null;
 
         while(!doublyLinkedList.isEmpty()){ //While the list is not empty
-            if(forward){
+            if(moveForward){
                 next = current.next;
                 if (next == null) { //If the next is null, then the current is the last element
                     next = current.previous;
-                    forward = false;
+                    moveForward = false;
                 }
             }
             else{
                 next = current.previous;
-                if (next == null) { //If the next is null, then the current is the first element
+                if (next == null) {
                     next = current.next;
-                    forward = true;
+                    moveForward = true;
                 }
             }
             counter++;
             if(counter == k){
-                doublyLinkedList.deleteKey(current.dData); //Delete the current element
+                doublyLinkedList.deleteKey(current.dData);
                 counter = 0;
             }
             current = next;
@@ -68,37 +68,62 @@ public class Main {
 
             doublyLinkedList.displayForward();
         }
-        return (int) doublyLinkedList.deleteFirst().dData;
+        return (int) doublyLinkedList.deleteFirst().dData; // there is only one element left, so return it
 
 
     }
     public static int lastInteger2(int n, int k) {
-        int[] array = new int[n];
-        for (int i = 0; i < n; i++) {
+        int[] array = new int[n]; //Create an array of size n
+
+        for (int i = 0; i < n; i++) { //Fill the array with numbers from 1 to n
             array[i] = i + 1;
         }
+
+        boolean forward = true;
         int counter = 0;
         int index = 0;
+        int next = 0;
         int zeroCounter = 0;
-        while (zeroCounter < n - 1) {
-            if (array[index] != 0) {
-                counter++;
-                if (counter == k) {
+        int lastNonZero = 0;
+        while(zeroCounter < n-1){
+            if(forward){
+                next = (index + 1);
+                if (next == n) {
+                    forward = false;
+                    next = index - 1;
+                }
+            }
+            else{
+                next = (index - 1);
+                if (next == -1) {
+                    forward = true;
+                    next = index + 1;
+                }
+            }
+
+            if(array[index] != 0)
+            {
+                //If we don't check the last nonzero,then in the case of 0,0,3,4,5,0,0: It counts 3 twice. 5,4,3,0,0,0,3,4.
+                if(lastNonZero != array[index])
+                    counter++;
+                lastNonZero = array[index];
+
+                if(counter == k){
                     array[index] = 0;
                     counter = 0;
                     zeroCounter++;
                 }
             }
-            index++;
-            if (index == n)
-                index = 0;
-
+            index = next;
         }
-        for (int i = 0; i < n; i++) {
-            if (array[i] != 0)
+
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] != 0)
                 return array[i];
         }
         return -1;
+
+
     }
 
 }
