@@ -1,21 +1,28 @@
 public class Main {
     public static void main(String[] args) {
         //1-) REGION
+        System.out.println("1-) REGION");
         LinkList newLinkList = new LinkList();
         newLinkList.insertFirst(1,30);
         newLinkList.insertFirst(7,31);
         newLinkList.insertFirst(2,32);
         newLinkList.insertFirst(3,33);
-        newLinkList.displayList();
-        newLinkList.delete(2);
-        newLinkList.displayList();
-        newLinkList.delete(3);
+
         newLinkList.displayList();
         newLinkList.delete(1);
+
+        newLinkList.displayList();
+        newLinkList.delete(3);
+
+        newLinkList.displayList();
+        newLinkList.delete(1);
+
         newLinkList.displayList();
         newLinkList.delete(7);
+
         newLinkList.displayList();
         //2-) REGION
+        System.out.println("2-) REGION");
         FirstLastList newFirstLastList = new FirstLastList();
         newFirstLastList.insertFirst(1);
         newFirstLastList.insertFirst(2);
@@ -26,6 +33,12 @@ public class Main {
         newFirstLastList.deleteLasts();
         newFirstLastList.displayList();
         //3-) REGION
+        System.out.println("3-) REGION");
+        System.out.println("Last Integer using Doubly Linked List:");
+        System.out.println(lastInteger(10,6));
+        //4-) REGION
+        System.out.println("4-) REGION");
+        System.out.println("Last Integer using Array:");
         System.out.println(lastInteger2(10,6));
     }
     public static int lastInteger(int n, int k) {
@@ -34,8 +47,6 @@ public class Main {
         for (int i = 1; i <= n; i++) { //Insert the numbers from 1 to n
             doublyLinkedList.insertLast(i);
         }
-
-        doublyLinkedList.displayForward(); //Display the list
 
         boolean moveForward = true;
         int counter = 0;
@@ -63,22 +74,16 @@ public class Main {
                 counter = 0;
             }
             current = next;
-            if(next == null) //If the next is null, then the current is the last element
+            if(next == null) //If the next is null, then there is the last element
                 break;
-
-            doublyLinkedList.displayForward();
         }
         return (int) doublyLinkedList.deleteFirst().dData; // there is only one element left, so return it
-
-
     }
     public static int lastInteger2(int n, int k) {
         int[] array = new int[n]; //Create an array of size n
-
         for (int i = 0; i < n; i++) { //Fill the array with numbers from 1 to n
             array[i] = i + 1;
         }
-
         boolean forward = true;
         int counter = 0;
         int index = 0;
@@ -116,14 +121,11 @@ public class Main {
             }
             index = next;
         }
-
         for (int i = 0; i < array.length; i++) {
             if(array[i] != 0)
-                return array[i];
+                return array[i]; //There is only one element left, so return it
         }
         return -1;
-
-
     }
 
 }
@@ -188,7 +190,6 @@ class LinkList
         }
         while(previous.next.iData != key)
         {
-
             if(previous.next.next == null)
                 return null;                 // didn't find it
             else
@@ -286,7 +287,7 @@ class FirstLastList
             current.displayLink();      // print data
             current = current.next;     // move to next link
         }
-        System.out.println("");
+        System.out.println();
     }
     public void deleteLasts(){
         fLink current = first;
