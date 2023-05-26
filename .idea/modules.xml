@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/DataStructures4260.iml" filepath="$PROJECT_DIR$/.idea/DataStructures4260.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 1/Week 1.iml" filepath="$PROJECT_DIR$/Week 1/Week 1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 2/Week 2.iml" filepath="$PROJECT_DIR$/Week 2/Week 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 3/Week 3.iml" filepath="$PROJECT_DIR$/Week 3/Week 3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week 4/Week 4.iml" filepath="$PROJECT_DIR$/Week 4/Week 4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week5/Week5.iml" filepath="$PROJECT_DIR$/Week5/Week5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week6/Week6.iml" filepath="$PROJECT_DIR$/Week6/Week6.iml" />
+    </modules>
+  </component>
+</project>
