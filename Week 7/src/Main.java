@@ -11,12 +11,12 @@ public class Main {
         for(int k = 0; k < 20; k++){
             System.out.println((k+1)+". iteration");
             ArraySh arraySorter = new ArraySh(100);
-            for (int i = 0; i < 25; i++) {
+            for (int i = 0; i < 100; i++) {
                 arraySorter.insert((int) (Math.random() * 999) + 1);
             }
-            var response = arraySorter.shellSort();
-            shellComparisonAvg+=response[0];
-            shellCopyAvg+=response[1];
+            int[] response = arraySorter.shellSort();
+            shellComparisonAvg += response[0];
+            shellCopyAvg += response[1];
             System.out.println("Comparison Counter: " + response[0] + " and Copy Counter: " + response[1]);
         }
         System.out.println("Shell Sort Comparison Average: "+shellComparisonAvg/20);
@@ -25,11 +25,10 @@ public class Main {
         for(int k = 0; k < 20; k++){
             System.out.println((k+1)+". iteration");
             ArrayIns arraySorter = new ArrayIns(100);
-            for (int i = 0; i < 25; i++) {
-                //fill the random array between 1 and 999
+            for (int i = 0; i < 100; i++) {
                 arraySorter.insert((int) (Math.random() * 999)+1);
             }
-            var response = arraySorter.quickSort();
+            int[] response = arraySorter.quickSort();
             quickComparisonAvg+=response[0];
             quickCopyAvg+=response[1];
             System.out.println("Comparison Counter: " + response[0] + " and Copy Counter: " + response[1]);
