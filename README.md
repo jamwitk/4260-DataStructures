@@ -19,7 +19,7 @@ To learn data structures such as arrays, stacks, queues, linked lists, binary tr
 **(d)** Add methods setName(), setPhoneNumber() and setAddress() that change these values.
 
 **(e)** Modify the method deposit() so that if the parameter amount is negative or 0, it prints an
-error message[README.md](README.md) indicating that the amount deposited should be positive and hence the deposit operation
+error message indicating that the amount deposited should be positive and hence the deposit operation
 is not performed.
 
 **(f)** Modify the method withdraw() so that if the parameter amount is negative or 0, it prints an
@@ -90,3 +90,44 @@ account (which should also print an error message).
 **(r)** Transfer 100 TLs from the first account to the second account.
 
 **(s)** Print the balance of both accounts.
+
+---
+## Week 2 Homework Assignment
+
+**(Programming Assignment)**
+
+**(1)** To the HighArray class, add a method called getMinIndex() that takes two parameters, lowIndex
+and highIndex, and returns the index of the item with the smallest key in the array among all the items
+whose indices are between lowIndex and highIndex inclusive. You may assume that all the keys in the
+array are positive integers less than 1000. For example, if an array holds items with the keys 6 7 1 5 9
+3 2 8 4 then getMinIndex(3,7) should return 6 because among the keys 5 9 3 2 8 the smallest one is 2
+and the index of the item with this key is 6. If lowIndex is greater than highIndex, or there are no items
+between these two indices inclusive, then the method should return -1.
+
+**(2)** To the HighArray class, add a method called placeMin() that takes two parameters, lowIndex
+and highIndex, and by using the getMinIndex() method, rearranges the items whose indices are between
+lowIndex and highIndex inclusive so that the item with the smallest key in this range is placed at index
+lowIndex. For example, if an array holds items with the keys 6 7 1 5 9 3 2 8 4 then placeMin(3,7) should
+place the item with key 2 in index position 3 and place the items with keys 5 9 3 8 in index positions
+4, 5, 6 and 7 in some order. If lowIndex is greater than highIndex, or there are no items between these
+two indices inclusive, the method should perform nothing.
+
+
+**(3)** To the HighArray class, add a method called sort() that sorts the items in the array according
+to their key values by repeatedly using the placeMin() method in a loop.
+
+**(4)** To the HighArray class, add a method called removeDuplicates() that removes all duplicates
+from the array. As k starts from index 0 and goes through all items in the array, the method should
+compare the item at index k with all the items from index k + 1 to the end, and keys of the items which
+have the same key as the item at index k should be changed to -1. If the key of the item at index k itself
+has already been changed to -1 then this item will be skipped without making any comparisons. The
+method should finally run through all items again and remove the ones with key -1.
+
+
+**(5)** To the OrdArray class, add a method called removeDuplicates() that removes all duplicates
+from the array. The running time of your method should be O(N), where N is the number of items in
+the array.
+
+**(6)** Add statements into the main() method of your Main class for testing all of the methods above.
+You should test as many different cases as possible.
+
