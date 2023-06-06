@@ -3,6 +3,8 @@ public class Main {
         FirstQuestion(10);
         SecondThirdFourthQuestion();
     }
+
+
     public static void SecondThirdFourthQuestion(){
         long shellComparisonAvg=0;
         long shellCopyAvg=0;
@@ -168,6 +170,7 @@ public class Main {
                     }
                     theArray[inner] = temp;
                     swaps++;
+                    //print the array
                 }
                 h = (h-1) / 3;
             }
@@ -220,6 +223,7 @@ public class Main {
                 int partition = partitionIt(left, right, pivot);
                 recQuickSort(left, partition-1);   // sort left side
                 recQuickSort(partition+1, right);  // sort right side
+
             }
         }  // end recQuickSort()
         //--------------------------------------------------------------
@@ -246,7 +250,8 @@ public class Main {
                     swap(leftPtr, rightPtr);  //    swap elements
                 }
             }  // end while(true)
-            swap(leftPtr, right);           // restore pivot
+            swap(leftPtr, right);
+            // restore pivot
             return leftPtr;                 // return pivot location
         }  // end partitionIt()
         //--------------------------------------------------------------
